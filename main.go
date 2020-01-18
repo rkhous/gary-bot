@@ -43,5 +43,15 @@ func main() {
 }
 
 func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
+	
+	if len(m.Content) == 0 {
+		return
+	}
 
+	if m.Author.ID == s.State.User.ID {
+		return
+	}
+
+	var getArgs []string = strings.Split(m.Content, " ")
+	
 }
